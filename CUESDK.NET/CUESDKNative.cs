@@ -14,7 +14,7 @@ namespace Corsair.CUE.SDK
         /// <param name="size">Number of leds in ledsColors array</param>
         /// <param name="ledsColors">Array containing colors for each LED.</param>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure. If there is no such ledId present in currently connected hardware (missing key in physical keyboard layout, or trying to control mouse while it’s disconnected) then function completes successfully and returns true.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairSetLedsColors(int size, IntPtr ledsColors);
 
         /// <summary>
@@ -24,14 +24,14 @@ namespace Corsair.CUE.SDK
         /// <param name="size">Number of leds in ledsColors array</param>
         /// <param name="ledsColors">Array containing colors for each LED.</param>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure. If there is no such ledId present in currently connected hardware (missing key in physical keyboard layout, or trying to control mouse while it’s disconnected) then functions completes successfully and returns true.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairSetLedsColorsBufferByDeviceIndex(int deviceIndex, int size, IntPtr ledsColors);
 
         /// <summary>
         /// Writes to the devices LEDs colors buffer which is previously filled by the CorsairSetLedsColorsBufferByDeviceIndex function. This function executes synchronously, if you are concerned about delays consider using CorsairSetLedsColorsFlushBufferAsync
         /// </summary>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure. If there is no such ledId in the LEDs colors buffer present in currently connected hardware (missing key in physical keyboard layout, or trying to control mouse while it’s disconnected) then functions completes successfully and returns true.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairSetLedsColorsFlushBuffer();
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Corsair.CUE.SDK
         /// <param name="callback">Callback that is called by SDK when colors are set. Can be NULL if client is not interested in result</param>
         /// <param name="context">Arbitrary context that will be returned in callback call. Can be NULL</param>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure. If there is no such ledId in the LEDs colors buffer present in currently connected hardware (missing key in physical keyboard layout, or trying to control mouse while it’s disconnected) then functions completes successfully and returns true.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairSetLedsColorsFlushBufferAsync(CorsairSetLedsColorsFlushBufferAsyncCallback callback, IntPtr context);
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Corsair.CUE.SDK
         /// <param name="size">Number of leds in ledsColors array</param>
         /// <param name="ledsColors">Array containing colors for each LED. Caller should only fill ledId field, and then SDK will fill R, G and B values on return</param>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure. If there is no such ledId present in currently connected hardware (missing key in physical keyboard layout, or trying to control mouse while it’s disconnected) then functions completes successfully and returns true. Also ledsColors array will contain R, G and B values of colors on return.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairGetLedsColors(int size, IntPtr ledsColors);
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Corsair.CUE.SDK
         /// <param name="size">Number of LEDs in ledsColors array</param>
         /// <param name="ledsColors">Array containing colors for each LED. Caller should only fill ledId field, and then SDK will fill R, G and B values on return.</param>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure. If there is no such ledId present in currently connected hardware (missing key in physical keyboard layout, or trying to control mouse while it’s disconnected) then functions completes successfully and returns true. Also ledsColors array will contain R, G and B values of colors on return.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairGetLedsColorsByDeviceIndex(int deviceIndex, int size, IntPtr ledsColors);
 
         /// <summary>
@@ -88,14 +88,14 @@ namespace Corsair.CUE.SDK
         /// <param name="callbackType">Callback that is called by SDK when colors are set. Can be NULL if client is not interested in result</param>
         /// <param name="context">Arbitrary context that will be returned in callback call. Can be NULL.</param>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairSetLedsColorsAsync(int size, IntPtr ledsColors, CorsairSetLedsColorsAsyncCallback callbackType, IntPtr context);
 
         /// <summary>
         /// Returns number of connected Corsair devices. For keyboards, mice, mousemats, headsets and headset stands  not more than one device of each type is included in return value in case if there are multiple devices of same type connected to the system. For DIY-devices and coolers actual number of connected devices is included in return value. For memory modules actual number of connected modules is included in return value, modules are enumerated with respect to their logical position (counting from left to right, from top to bottom). Use CorsairGetDeviceInfo() to get information about a certain device.
         /// </summary>
         /// <returns>Integer value. -1 in case of error.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern int CorsairGetDeviceCount();
 
         /// <summary>
@@ -103,14 +103,14 @@ namespace Corsair.CUE.SDK
         /// </summary>
         /// <param name="deviceIndex">Zero-based index of device. Should be strictly less than a value returned by CorsairGetDeviceInfo()</param>
         /// <returns>Pointer to CorsairDeviceInfo structure that contains information about device or NULL pointer if error has occurred.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr CorsairGetDeviceInfo(int deviceIndex);
 
         /// <summary>
         /// Provides list of keyboard LEDs with their physical positions. Coordinates grids for different device models can be found in Device coordinates.
         /// </summary>
         /// <returns>Returns pointer to CorsairLedPositions struct or NULL if error has occured.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr CorsairGetLedPositions();
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace Corsair.CUE.SDK
         /// </summary>
         /// <param name="deviceIndex">Zero-based index of device. Should be strictly less than a value returned by CorsairGetDeviceCount()</param>
         /// <returns>Returns pointer to CorsairLedPositions struct or NULL if error has occurred.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr CorsairGetLedPositionsByDeviceIndex(int deviceIndex);
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace Corsair.CUE.SDK
         /// </summary>
         /// <param name="keyName">Key name. [‘A’..’Z’] (26 values) are valid values.</param>
         /// <returns>Proper CorsairLedId or CorserLed_Invalid if error occurred.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern CorsairLedId CorsairGetLedIdForKeyName(char keyName);
 
         /// <summary>
@@ -134,21 +134,21 @@ namespace Corsair.CUE.SDK
         /// </summary>
         /// <param name="accessMode">Requested accessMode</param>
         /// <returns>Boolean value. Returns true if SDK received requested control or false otherwise.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairRequestControl(CorsairAccessMode accessMode);
 
         /// <summary>
         /// Checks file and protocol version of CUE to understand which of SDK functions can be used with this version of CUE.
         /// </summary>
         /// <returns>CorsairProtocolDetails struct.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern CorsairProtocolDetailsNative CorsairPerformProtocolHandshake();
 
         /// <summary>
         /// Returns last error that occurred in this thread while using any of Corsair* functions.
         /// </summary>
         /// <returns>CorsairError value.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern CorsairError CorsairGetLastError();
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace Corsair.CUE.SDK
         /// </summary>
         /// <param name="accessMode">AccessMode that is requested to be released.</param>
         /// <returns>Boolean value. Returns true if SDK released control or false otherwise.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairReleaseControl(CorsairAccessMode accessMode);
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace Corsair.CUE.SDK
         /// </summary>
         /// <param name="priority">Priority of a layer [0..255]</param>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure. If this function is called in exclusive  mode then it will return true.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairSetLayerPriority(int priority);
 
         /// <summary>
@@ -182,7 +182,7 @@ namespace Corsair.CUE.SDK
         /// <param name="CallbackType">Callback that is called by SDK when key is pressed or released</param>
         /// <param name="context">Arbitrary context that will be returned in callback call. Can be NULL.</param>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairRegisterKeypressCallback(CorsairRegisterKeypressCallbackCallback CallbackType, IntPtr context);
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace Corsair.CUE.SDK
         /// <param name="propertyId">Id of property to read from device</param>
         /// <param name="propertyValue">Pointer to memory where to store boolean property value read from device.</param>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairGetBoolPropertyValue(int deviceIndex, CorsairDevicePropertyId propertyId, IntPtr propertyValue);
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace Corsair.CUE.SDK
         /// <param name="propertyId">Id of property to read from device</param>
         /// <param name="propertyValue">Pointer to memory where to store integer property value read from device.</param>
         /// <returns>Boolean value. True if successful. Use CorsairGetLastError() to check the reason of failure.</returns>
-        [DllImport("CUESDK.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CUESDK.x64_2017.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool CorsairGetInt32PropertyValue(int deviceIndex, CorsairDevicePropertyId propertyId, IntPtr propertyValue);
     }
 }
